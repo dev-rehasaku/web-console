@@ -41,14 +41,14 @@ module WebConsole
       line = line.to_i
 
       @bindings.find do |binding|
-        source_location = SourceLocation.new(binding)
+        source_location = WebConsole::SourceLocation.new(binding)
         source_location.path == file && source_location.lineno == line
       end
     end
 
     def guess_the_first_application_binding
       @bindings.find do |binding|
-        source_location = SourceLocation.new(binding)
+        source_location = WebConsole::SourceLocation.new(binding)
         source_location.path.to_s.start_with?(Rails.root.to_s)
       end
     end
