@@ -7,6 +7,7 @@ module WebConsole
     end
 
     if RUBY_VERSION >= "2.6"
+      # 新しいsource_locationを実行
       def path() @binding.source_location.first end
       def lineno() @binding.source_location.last end
     else
